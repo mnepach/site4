@@ -9,7 +9,7 @@ function Footer() {
     };
 
     return (
-      <footer className="py-8 sm:py-12 bg-[var(--water-dark)] text-white" data-name="footer" data-file="components/Footer.js">
+      <footer className="py-8 sm:py-12 bg-gradient-to-b from-[var(--water-dark)] to-[var(--secondary-color)] text-white" data-name="footer" data-file="components/Footer.js">
         <div className="mobile-container">
           <div className="text-center space-y-4 sm:space-y-6">
             <div className="flex items-center justify-center space-x-2">
@@ -27,7 +27,7 @@ function Footer() {
               
               <div className="space-y-1 sm:space-y-2">
                 <div 
-                  className="flex items-center justify-center gap-2 p-2 rounded-lg"
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
                   onClick={() => handleContactTap('phone')}
                 >
                   <div className="icon-phone text-sm sm:text-base"></div>
@@ -36,7 +36,7 @@ function Footer() {
                   </span>
                 </div>
                 <div 
-                  className="flex items-center justify-center gap-2 p-2 rounded-lg"
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg hover:bg-white/10 transition-colors cursor-pointer"
                   onClick={() => handleContactTap('email')}
                 >
                   <div className="icon-mail text-sm sm:text-base"></div>
@@ -47,19 +47,42 @@ function Footer() {
               </div>
             </div>
             
-            <div className="border-t border-gray-700 pt-4 sm:pt-6 space-y-2 sm:space-y-3 bg-black/20 rounded-lg p-4 mt-4">
-              <div className="text-xs sm:text-sm text-gray-400">
+            <div className="border-t border-white/20 pt-4 sm:pt-6 space-y-3 sm:space-y-4">
+              <div className="text-xs sm:text-sm text-gray-300">
                 <p>ООО "АЛИВИТАРГЕТ" УНП 193766073</p>
                 <p>220113, до востребования</p>
                 <p className="mt-1 sm:mt-2">Акция действует на всей территории Беларуси</p>
               </div>
               
+              <div className="flex flex-wrap justify-center gap-3 sm:gap-6 text-xs sm:text-sm">
+                <a 
+                  href="politics.html" 
+                  className="text-white hover:text-[var(--accent-color)] transition-colors font-medium underline underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Политика конфиденциальности
+                </a>
+                <a 
+                  href="oferta.html" 
+                  className="text-white hover:text-[var(--accent-color)] transition-colors font-medium underline underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Публичная оферта
+                </a>
+                <a 
+                  href="obmen_vozvrat.html" 
+                  className="text-white hover:text-[var(--accent-color)] transition-colors font-medium underline underline-offset-4"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Обмен и возврат товара
+                </a>
+              </div>
+              
               <div className="text-xs sm:text-sm text-gray-400">
                 <p>© 2025 MetalGuard. Все права защищены.</p>
-                <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-2">
-                  <a href="#" className="hover:text-white transition-colors font-semibold">Политика конфиденциальности</a>
-                  <a href="#" className="hover:text-white transition-colors font-semibold">Пользовательское соглашение</a>
-                </div>
               </div>
             </div>
           </div>

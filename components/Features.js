@@ -23,36 +23,43 @@ function Features() {
       }
     ];
 
+    const handleFeatureTap = (index) => {
+      console.log('Feature tapped:', index);
+    };
+
     return (
       <section
         id="features"
-        className="py-8 sm:py-12 bg-gradient-to-b from-[var(--surface-blue)] to-white"
+        className="py-12 sm:py-16 lg:py-20 bg-white"
         data-name="features"
         data-file="components/Features.js"
       >
         <div className="mobile-container">
-          <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)]">
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-[var(--text-primary)]">
               Преимущества <span className="gradient-text">MetalGuard</span>
             </h2>
+            <p className="text-base sm:text-lg lg:text-xl text-[var(--text-secondary)] max-w-3xl mx-auto">
+              Профессиональное решение для защиты металла от коррозии
+            </p>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-6xl mx-auto">
             {features.map((feature, index) => (
               <div 
                 key={index} 
-                className="text-center active:scale-95 transition-transform touch-manipulation"
+                className="feature-card text-center group cursor-pointer"
                 onClick={() => handleFeatureTap(index)}
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl water-bg flex items-center justify-center shadow-lg active:shadow-inner">
-                  <div className={`icon-${feature.icon} text-lg sm:text-2xl text-white`}></div>
+                <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 mx-auto mb-4 sm:mb-6 rounded-2xl water-bg flex items-center justify-center shadow-xl group-hover:shadow-2xl transition-all duration-300 group-hover:scale-110">
+                  <div className={`icon-${feature.icon} text-2xl sm:text-3xl lg:text-4xl text-white`}></div>
                 </div>
                 
-                <h3 className="text-sm sm:text-lg font-semibold mb-2 sm:mb-3 text-[var(--text-primary)]">
+                <h3 className="text-base sm:text-lg lg:text-xl font-bold mb-2 sm:mb-3 text-[var(--text-primary)] group-hover:text-[var(--primary-color)] transition-colors">
                   {feature.title}
                 </h3>
                 
-                <p className="text-xs sm:text-sm text-[var(--text-secondary)] leading-tight">
+                <p className="text-xs sm:text-sm lg:text-base text-[var(--text-secondary)] leading-relaxed">
                   {feature.description}
                 </p>
               </div>

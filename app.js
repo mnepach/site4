@@ -37,14 +37,16 @@ class ErrorBoundary extends React.Component {
 function App() {
   try {
     return (
-      <div className="min-h-screen" data-name="app" data-file="app.js">
+      <div className="min-h-screen bg-white" data-name="app" data-file="app.js">
         <Header />
-        <Hero />
-        <Features />
-        <ProductDescription />
-        <Specifications />
-        <Gallery />
-        <OrderSection />
+        <main>
+          <Hero />
+          <Features />
+          <ProductDescription />
+          <Specifications />
+          <Gallery />
+          <OrderSection />
+        </main>
         <Footer />
       </div>
     );
