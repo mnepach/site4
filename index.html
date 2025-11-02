@@ -25,15 +25,15 @@
     @layer theme {
         :root {
             --primary-color: #0ea5e9;
-            --secondary-color: #3b82f6;
-            --accent-color: #f59e0b;
+            --secondary-color: #1e40af;
+            --accent-color: #22d3ee;
             --surface-blue: #e0f2fe;
             --water-light: #f0f9ff;
-            --water-dark: #075985;
+            --water-dark: #0c4a6e;
             --text-primary: #0c4a6e;
             --text-secondary: #0369a1;
-            --background: #ffffff;
-            --surface: #f8fafc;
+            --background: #f8fafc;
+            --surface: #ffffff;
             --border: #e2e8f0;
             --success: #10b981;
         }
@@ -47,7 +47,7 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             color: var(--text-primary);
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #bae6fd 100%);
+            background: linear-gradient(135deg, var(--water-light) 0%, var(--surface-blue) 50%, var(--primary-color) 100%);
             background-attachment: fixed;
             line-height: 1.6;
             margin: 0;
@@ -56,7 +56,7 @@
         }
         
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
+            font-weight: 700;
             line-height: 1.3;
             margin: 0;
         }
@@ -73,18 +73,18 @@
         }
         
         .water-bg {
-            background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 50%, #1e40af 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
         }
         
         .gradient-text {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
         .btn-primary {
-            @apply w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-white text-[var(--primary-color)] border-2 border-white rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 text-center hover:bg-[var(--accent-color)] hover:text-white hover:border-[var(--accent-color)];
+            @apply w-full sm:w-auto px-6 py-3 sm:px-8 sm:py-4 bg-[var(--primary-color)] text-white border-2 border-[var(--primary-color)] rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 text-center hover:bg-[var(--accent-color)] hover:border-[var(--accent-color)];
         }
         
         .btn-secondary {
@@ -92,31 +92,31 @@
         }
         
         .feature-card {
-            @apply bg-white/90 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-white/50;
+            @apply bg-white/95 backdrop-blur-md rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-[var(--border)];
         }
         
         .price-old {
-            @apply text-white/70 line-through text-lg sm:text-xl;
+            @apply text-gray-500 line-through text-lg sm:text-xl;
         }
         
         .price-new {
-            @apply text-2xl sm:text-3xl font-bold text-[var(--accent-color)];
+            @apply text-3xl sm:text-4xl font-bold text-[var(--accent-color)];
         }
         
         .discount-badge {
-            @apply bg-[var(--accent-color)] text-white px-2 py-1 sm:px-3 sm:py-1 rounded-full text-xs sm:text-sm font-semibold animate-pulse;
+            @apply bg-[var(--success)] text-white px-3 py-1 rounded-full text-sm sm:text-base font-semibold animate-pulse;
         }
         
         .promotion-badge {
-            @apply bg-gradient-to-r from-[var(--accent-color)] to-orange-500 text-white px-3 py-1 sm:px-4 sm:py-2 rounded-full text-sm sm:text-base font-bold shadow-lg animate-bounce;
+            @apply bg-gradient-to-r from-[var(--secondary-color)] to-[var(--primary-color)] text-white px-4 py-2 rounded-full text-sm sm:text-base font-bold shadow-lg animate-bounce;
         }
         
         .mobile-container {
-            @apply px-4 sm:px-6 lg:px-8;
+            @apply px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto;
         }
         
         .glass-card {
-            @apply bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl;
+            @apply bg-white/10 backdrop-blur-lg border border-white/30 rounded-2xl;
         }
         
         .water-ripple {
@@ -130,23 +130,36 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: ripple 2s infinite;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: ripple 3s infinite;
         }
         
         @keyframes ripple {
             0% { left: -100%; }
             100% { left: 100%; }
         }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     }
 
     @layer utilities {
         .text-shadow {
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
         }
         
         .text-glow {
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+        }
+        
+        .min-h-screen-custom {
+            min-height: calc(100vh - 80px); /* Высота хедера учтена */
         }
     }
     </style>

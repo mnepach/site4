@@ -24,7 +24,12 @@ function Features() {
     ];
 
     return (
-      <section id="features" className="py-8 sm:py-12 bg-[var(--water-light)]" data-name="features" data-file="components/Features.js">
+      <section
+        id="features"
+        className="py-8 sm:py-12 bg-gradient-to-b from-[var(--surface-blue)] to-white"
+        data-name="features"
+        data-file="components/Features.js"
+      >
         <div className="mobile-container">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)]">
@@ -32,10 +37,14 @@ function Features() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-6">
             {features.map((feature, index) => (
-              <div key={index} className="text-center">
-                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl water-bg flex items-center justify-center shadow-lg">
+              <div 
+                key={index} 
+                className="text-center active:scale-95 transition-transform touch-manipulation"
+                onClick={() => handleFeatureTap(index)}
+              >
+                <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl water-bg flex items-center justify-center shadow-lg active:shadow-inner">
                   <div className={`icon-${feature.icon} text-lg sm:text-2xl text-white`}></div>
                 </div>
                 

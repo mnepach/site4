@@ -17,7 +17,7 @@ function OrderSection() {
       
       setIsSubmitting(true);
       
-      // Simulate order submission
+
       setTimeout(() => {
         alert('Спасибо за заказ! Мы свяжемся с вами в ближайшее время.');
         setFormData({ name: '', phone: '', agreed: false });
@@ -33,39 +33,30 @@ function OrderSection() {
       }));
     };
 
+    const handleInputFocus = () => {
+      setTimeout(() => {
+        window.scrollTo({
+          top: document.getElementById('order').offsetTop - 100,
+          behavior: 'smooth'
+        });
+      }, 300);
+    };
+
     return (
-      <section id="order" className="py-8 sm:py-12 water-bg" data-name="order-section" data-file="components/OrderSection.js">
+      <section id="order" className="py-8 sm:py-12 bg-gradient-to-b from-[var(--surface-blue)] to-[var(--water-dark)]" data-name="order-section" data-file="components/OrderSection.js">
         <div className="mobile-container">
           <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl border border-white/50">
             <div className="text-center mb-6 sm:mb-8">
-              <div className="promotion-badge mb-4">
+              <div className="promotion-badge mb-4 animate-pulse">
                 🔥 АКЦИЯ 3+1 = ЧЕТВЁРТЫЙ В ПОДАРОК!
               </div>
               
-              <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto mb-4 sm:mb-6 rounded-xl water-bg flex items-center justify-center shadow-lg">
-                <div className="icon-shield-check text-2xl sm:text-3xl text-white"></div>
-              </div>
-              
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-3 sm:mb-4 text-[var(--text-primary)]">
-                Преобразователь ржавчины <span className="gradient-text">с грунтовочным эффектом</span>
+                Преобразователь ржавчины<br />
+                <span className="gradient-text">с грунтовочным эффектом</span>
               </h2>
               
-              <p className="text-sm sm:text-base text-[var(--text-secondary)] mb-4 sm:mb-6">
-                Инновационное решение: превращает ржавчину в защитный слой за один шаг
-              </p>
-              
-              <div className="glass-card p-4 mb-4">
-                <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mb-2">
-                  <span className="text-[var(--text-secondary)] line-through text-lg sm:text-xl">80 BYN</span>
-                  <span className="text-2xl sm:text-3xl font-bold text-[var(--accent-color)]">39.99 BYN</span>
-                  <span className="discount-badge">-50%</span>
-                </div>
-                <div className="text-sm text-[var(--text-secondary)] font-semibold">
-                  При покупке 3 шт. - 4-я упаковка в подарок!
-                </div>
-              </div>
-              
-              <div className="bg-[var(--surface-blue)] p-3 rounded-lg text-sm text-[var(--text-primary)]">
+              <div className="bg-[var(--surface-blue)] p-3 rounded-lg text-sm text-[var(--text-primary)] touch-manipulation active:scale-95 transition-transform">
                 <div className="font-semibold mb-1">Условия акции:</div>
                 <div>• Купите 3 упаковки по цене 39.99 BYN</div>
                 <div>• Получите 4-ю упаковку бесплатно</div>
@@ -84,8 +75,10 @@ function OrderSection() {
                   placeholder="Ваше имя"
                   value={formData.name}
                   onChange={handleInputChange}
+                  onFocus={handleInputFocus}
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                  className="w-full px-3 py-3 sm:px-4 sm:py-3 text-base border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent touch-manipulation"
+                  style={{ fontSize: '16px' }}
                 />
               </div>
               
@@ -96,12 +89,17 @@ function OrderSection() {
                   placeholder="Номер телефона"
                   value={formData.phone}
                   onChange={handleInputChange}
+                  onFocus={handleInputFocus}
                   required
-                  className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent"
+                  className="w-full px-3 py-3 sm:px-4 sm:py-3 text-base border border-[var(--border)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)] focus:border-transparent touch-manipulation"
+                  style={{ fontSize: '16px' }}
                 />
               </div>
               
-              <div className="flex items-start gap-2 sm:gap-3">
+              <div 
+                className="flex items-start gap-2 sm:gap-3 active:scale-95 transition-transform touch-manipulation p-2 rounded-lg"
+                onClick={() => setFormData(prev => ({ ...prev, agreed: !prev.agreed }))}
+              >
                 <input
                   type="checkbox"
                   name="agreed"
@@ -118,7 +116,7 @@ function OrderSection() {
               <button
                 type="submit"
                 disabled={isSubmitting || !formData.name || !formData.phone || !formData.agreed}
-                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed active:scale-95 transition-transform touch-manipulation py-4 text-lg font-semibold"
               >
                 {isSubmitting ? (
                   <span className="flex items-center justify-center gap-2">
@@ -126,7 +124,7 @@ function OrderSection() {
                     Отправляем заказ...
                   </span>
                 ) : (
-                  'Заказать'
+                  'Заказать сейчас'
                 )}
               </button>
             </form>

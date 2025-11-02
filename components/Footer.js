@@ -1,5 +1,13 @@
 function Footer() {
   try {
+    const handleContactTap = (type) => {
+      if (type === 'phone') {
+        window.location.href = 'tel:+375292258014';
+      } else if (type === 'email') {
+        window.location.href = 'mailto:alivitarget@mail.ru';
+      }
+    };
+
     return (
       <footer className="py-8 sm:py-12 bg-[var(--water-dark)] text-white" data-name="footer" data-file="components/Footer.js">
         <div className="mobile-container">
@@ -18,22 +26,28 @@ function Footer() {
               </div>
               
               <div className="space-y-1 sm:space-y-2">
-                <div className="flex items-center justify-center gap-2">
+                <div 
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg"
+                  onClick={() => handleContactTap('phone')}
+                >
                   <div className="icon-phone text-sm sm:text-base"></div>
-                  <a href="tel:+375292258014" className="text-sm sm:text-base hover:text-gray-300 transition-colors">
+                  <span className="text-sm sm:text-base font-bold">
                     +375 (29) 225-80-14
-                  </a>
+                  </span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
+                <div 
+                  className="flex items-center justify-center gap-2 p-2 rounded-lg"
+                  onClick={() => handleContactTap('email')}
+                >
                   <div className="icon-mail text-sm sm:text-base"></div>
-                  <a href="mailto:alivitarget@mail.ru" className="text-sm sm:text-base hover:text-gray-300 transition-colors">
+                  <span className="text-sm sm:text-base font-bold">
                     alivitarget@mail.ru
-                  </a>
+                  </span>
                 </div>
               </div>
             </div>
             
-            <div className="border-t border-gray-700 pt-4 sm:pt-6 space-y-2 sm:space-y-3">
+            <div className="border-t border-gray-700 pt-4 sm:pt-6 space-y-2 sm:space-y-3 bg-black/20 rounded-lg p-4 mt-4">
               <div className="text-xs sm:text-sm text-gray-400">
                 <p>ООО "АЛИВИТАРГЕТ" УНП 193766073</p>
                 <p>220113, до востребования</p>
@@ -43,8 +57,8 @@ function Footer() {
               <div className="text-xs sm:text-sm text-gray-400">
                 <p>© 2025 MetalGuard. Все права защищены.</p>
                 <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mt-2">
-                  <a href="#" className="hover:text-white transition-colors">Политика конфиденциальности</a>
-                  <a href="#" className="hover:text-white transition-colors">Пользовательское соглашение</a>
+                  <a href="#" className="hover:text-white transition-colors font-semibold">Политика конфиденциальности</a>
+                  <a href="#" className="hover:text-white transition-colors font-semibold">Пользовательское соглашение</a>
                 </div>
               </div>
             </div>

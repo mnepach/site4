@@ -1,14 +1,18 @@
 function Header() {
   try {
     return (
-      <header className="bg-white shadow-sm sticky top-0 z-50" data-name="header" data-file="components/Header.js">
-        <div className="mobile-container py-3">
+      <header
+        className="sticky top-0 z-30 bg-[var(--water-dark)]/90 backdrop-blur-lg border-b border-[var(--border)] shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+        data-name="header"
+        data-file="components/Header.js"
+      >
+        <div className="mobile-container py-4">
           <div className="flex items-center justify-center">
-            <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg gradient-bg flex items-center justify-center">
-                <div className="icon-shield text-lg sm:text-xl text-white"></div>
+            <div className="flex items-center space-x-3">
+              <div className="w-12 h-12 rounded-xl glass-card flex items-center justify-center shadow-lg water-ripple">
+                <div className="icon-shield text-2xl text-[var(--text-primary)] text-glow"></div>
               </div>
-              <span className="text-lg sm:text-xl font-bold gradient-text">MetalGuard</span>
+              <span className="text-2xl font-bold gradient-text text-shadow">MetalGuard</span>
             </div>
           </div>
         </div>

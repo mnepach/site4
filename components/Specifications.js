@@ -2,7 +2,7 @@ function Specifications() {
   try {
     const specs = [
       {
-        icon: 'flask',
+        icon: 'beaker',
         title: 'Тип',
         value: 'преобразователь+грунтовка'
       },
@@ -24,7 +24,11 @@ function Specifications() {
     ];
 
     return (
-      <section className="py-8 sm:py-12 bg-[var(--water-light)]" data-name="specifications" data-file="components/Specifications.js">
+      <section
+        className="py-8 sm:py-12 bg-gradient-to-b from-white to-white"
+        data-name="specifications"
+        data-file="components/Specifications.js"
+      >
         <div className="mobile-container">
           <div className="text-center mb-6 sm:mb-8">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">Характеристики</h2>
