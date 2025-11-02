@@ -10,13 +10,13 @@ function Hero() {
         <div 
           className="absolute inset-0 z-0"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+            backgroundImage: 'url(https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--water-dark)]/95 via-[var(--primary-color)]/90 to-[var(--accent-color)]/85"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--water-dark)]/90 via-[var(--primary-color)]/85 to-[var(--accent-color)]/80"></div>
         </div>
 
         {/* Water Ripple Effect */}
